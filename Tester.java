@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 public class Tester{
-  public static void main(){
+  public static void main(String[] args){
     ArrayList<Student> s = new ArrayList<Student>();
     StudentParser p = new StudentParser();
     s = p.parse();

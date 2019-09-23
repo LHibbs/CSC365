@@ -9,6 +9,28 @@ public class Student {
     private String tLastName;
     private String tFirstName;
 
+    public Student(){
+      stLastName = "ERROR";
+      stFirstName = "ERROR";
+      grade = -1;
+      classroom = -1;
+      bus = -1;
+      GPA = -1;
+      tLastName = "ERROR";
+      tFirstName = "ERROR";
+    }
+
+    public Student(String ln, String fn, int gr, int cl, int bu, double gp, String tl, String tf){
+      stLastName = ln;
+      stFirstName = fn;
+      grade = gr;
+      classroom = cl;
+      bus = bu;
+      GPA = gp;
+      tLastName = tl;
+      tFirstName = tf;
+    }
+
     public String getStLastName(){
         return stLastName;
     }
@@ -42,7 +64,8 @@ public class Student {
     }
 
     public String toString(){
-      return stFirstName + " " + stLastName + ", " + grade + ", " + classroom + ", " + bus + ", " + GPA + ", " + tFirstName + ", " + tLastName;
+      //System.out.println(stFirstName + " " + stLastName + ", " + tFirstName + " " + tLastName);
+      return stFirstName + " " + stLastName + ", " + grade + ", " + classroom + ", " + bus + ", " + GPA + ", " + tFirstName + " " + tLastName;
     }
 
 }
