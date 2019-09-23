@@ -7,7 +7,7 @@ public class Student {
     private int bus;
     private double GPA;
     private String tLastName;
-    private String tFirstName; 
+    private String tFirstName;
 
     public String getStLastName(){
         return stLastName;
@@ -18,7 +18,7 @@ public class Student {
     }
 
     public int getGrade(){
-        return grade; 
+        return grade;
     }
 
     public int getClassroom(){
@@ -26,19 +26,23 @@ public class Student {
     }
 
     public int getBus(){
-        return bus; 
+        return bus;
     }
 
     public double getGPA(){
-        return GPA; 
+        return GPA;
     }
 
     public String getTLastName(){
-        return tLastName; 
+        return tLastName;
     }
 
     public String getTFirstName(){
-        return tFirstName; 
+        return tFirstName;
+    }
+
+    public String toString(){
+      return stFirstName + " " + stLastName + ", " + grade + ", " + classroom + ", " + bus + ", " + GPA + ", " + tFirstName + ", " + tLastName;
     }
 
 }
