@@ -1,3 +1,5 @@
+//Lauren Hibbs, Daniel Deegan
+
 public class Student {
 
     private String stLastName;

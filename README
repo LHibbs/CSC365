@@ -1,0 +1,4 @@
+Compile the java files by running the command [javac *.java] in the directory that contains the program's java files. The program can then by run by entering the command [java schoolsearch] in the same directory.
+
+Daniel Deegan
+Lauren Hibbs
