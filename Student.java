@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Student {
 
     private String stLastName;
@@ -39,6 +42,34 @@ public class Student {
 
     public String getTFirstName(){
         return tFirstName; 
+    }
+
+    public String filteredPrint(ArrayList<String> attribs) {
+        String s = ""; 
+        Iterator<E> it = attribs.iterator(); 
+        while(it.hasNext()) { 
+            switch(it.next()){
+                case stLastName: 
+                    s += " " + stLastName; 
+                case stFirstName: 
+                    s += " " + stFirstName; 
+                case grade:
+                    s += " " + grade; 
+                case classroom:
+                    s += " " + classroom;
+                case bus:
+                    s += " " + bus; 
+                case GPA : 
+                    s += " " + GPA; 
+                case tLastName : 
+                    s += " " + tLastName:
+                case tFirstName: 
+                    s += " " + tFirstName; 
+                default: 
+                    System.out.println("error"); 
+            }
+        }
+        return s.trim(); 
     }
 
 }
