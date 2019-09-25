@@ -1,14 +1,10 @@
 import java.util.ArrayList;
+import java.util.List;
+import java.util.*;  
 
 public class SchoolSearch {
 
     private ArrayList<Student> listStudents;
-    
-    public String printStudent() {
-
-
-
-    }
 
     public void studentLastName(String lastName){
         ArrayList<String> printAttribs = new ArrayList<String> (
@@ -28,9 +24,9 @@ public class SchoolSearch {
 
     public void executeQuery(Predicate<Student> pred, Consumer<Student> print) {
         listStudents
-        .stream()
-        .filter(pred)
-        .forEach(print); 
+            .stream()
+            .filter(pred)
+            .forEach(print); 
     }
 
 
