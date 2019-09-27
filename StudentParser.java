@@ -48,7 +48,7 @@ public class StudentParser{
         list.add(s);
       }
       catch(NoSuchElementException i){
-        System.out.println("Invalid input!");
+        System.out.println("Invalid file!");
         System.exit(-1);
       }
     }
