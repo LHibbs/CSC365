@@ -1,0 +1,158 @@
+Testlog:
+ddeegan@csc235x12:/home/ddeegan/csc365/CSC365 $ javac *.java
+ddeegan@csc235x12:/home/ddeegan/csc365/CSC365 $ java SchoolSearch
+Enter search command: S: HAVIR
+HAVIR,BOBBIE,2,108,HAMER,GAVIN
+
+Enter search command: S: NEMO
+
+Enter search command: Student: HAVIR
+HAVIR,BOBBIE,2,108,HAMER,GAVIN
+
+Enter search command: S: OBREIN B
+OBREIN,STAN,52
+
+Enter search command: Student: OBREIN Bus
+OBREIN,STAN,52
+
+Enter search command: T: HANTZ
+CORKER,CARTER
+IMMERMAN,DEVIN
+RAPOSE,ALONZO
+OGAS,ERVIN
+MASSART,ELDON
+BEX,TAMESHA
+
+Enter search command: Teacher: HANTZ
+CORKER,CARTER
+IMMERMAN,DEVIN
+RAPOSE,ALONZO
+OGAS,ERVIN
+MASSART,ELDON
+BEX,TAMESHA
+
+Enter search command: T: FAKER
+
+Enter search command: T: BEX
+
+Enter search command: G: 4
+CORKER,CARTER
+IMMERMAN,DEVIN
+RAPOSE,ALONZO
+WORBINGTON,DEEDRA
+OGAS,ERVIN
+SPANICEK,KENDRA
+GUICE,CODI
+GLOR,HUNG
+GUM,NOAH
+MASSART,ELDON
+NOVICK,ROLLAND
+DURAND,CARLEE
+BEX,TAMESHA
+DELUNA,KRYSTAL
+COMO,ZANDRA
+
+Enter search command: Grade: 4
+CORKER,CARTER
+IMMERMAN,DEVIN
+RAPOSE,ALONZO
+WORBINGTON,DEEDRA
+OGAS,ERVIN
+SPANICEK,KENDRA
+GUICE,CODI
+GLOR,HUNG
+GUM,NOAH
+MASSART,ELDON
+NOVICK,ROLLAND
+DURAND,CARLEE
+BEX,TAMESHA
+DELUNA,KRYSTAL
+COMO,ZANDRA
+
+Enter search command: Grade: 14
+
+Enter search command: B: 52
+COOKUS,XUAN,3,107
+ELHADDAD,SHANTE,3,107
+IMMERMAN,DEVIN,4,105
+OBREIN,STAN,6,111
+CORONADO,DIMPLE,6,102
+SARAO,DIEDRA,2,108
+EARLY,TORY,3,107
+KEMERER,ROSETTA,6,102
+
+Enter search command: Bus: 52
+COOKUS,XUAN,3,107
+ELHADDAD,SHANTE,3,107
+IMMERMAN,DEVIN,4,105
+OBREIN,STAN,6,111
+CORONADO,DIMPLE,6,102
+SARAO,DIEDRA,2,108
+EARLY,TORY,3,107
+KEMERER,ROSETTA,6,102
+
+Enter search command: B: 11037
+11037
+
+Enter search command: G: 6 H
+LAMKIN,TAMA,3.23,NISTENDIRK,NANCY,55
+
+Enter search command: Grade: 6 High
+LAMKIN,TAMA,3.23,NISTENDIRK,NANCY,55
+
+Enter search command: G: 2 L
+KOZOLA,BUSTER,2.76,HAMER,GAVIN,55
+
+Enter search command: Grade: 2 Low
+KOZOLA,BUSTER,2.76,HAMER,GAVIN,55
+
+Enter search command: G: -5 L
+
+Enter search command: A: 3
+3.05
+
+Enter search command: Average: 3
+3.05
+
+Enter search command: A: 300
+300
+
+Enter search command: I
+0: 0
+1: 2
+2: 13
+3: 9
+4: 15
+5: 0
+6: 21
+
+Enter search command: Info
+0: 0
+1: 2
+2: 13
+3: 9
+4: 15
+5: 0
+6: 21
+
+Enter search command: Z:
+
+Enter search command: Wheeeeeeeee
+
+Enter search command: 516
+
+Enter search command: G: apple
+
+Enter search command: Q
+quit
+
+//removed students.txt from the folder
+ddeegan@csc235x12:/home/ddeegan/csc365/CSC365 $ javac *.java
+ddeegan@csc235x12:/home/ddeegan/csc365/CSC365 $ java SchoolSearch
+students.txt not found
+
+//returned students.txt to the folder and edited it to have illegal formatting
+ddeegan@csc235x12:/home/ddeegan/csc365/CSC365 $ javac *.java
+ddeegan@csc235x12:/home/ddeegan/csc365/CSC365 $ java SchoolSearch
+Invalid file!
+
