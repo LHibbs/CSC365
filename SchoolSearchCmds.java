@@ -99,11 +99,11 @@ public class SchoolSearchCmds {
     }
 
     public void executeQuery(Predicate<Student> pred, List<String> printAttribs, Comparator<Student> sort) {
-        List<Student> highest = listStudents.stream().filter(pred).sorted(sort).collect(Collectors.toList());
+        List<Student> filteredStudents = listStudents.stream().filter(pred).sorted(sort).collect(Collectors.toList());
 
         // can't figure out optionals with the stream
-        if (highest.size() > 0) {
-            System.out.println(highest.get(0).filteredPrint(printAttribs));
+        if (filteredStudents.size() > 0) {
+            System.out.println(filteredStudents.get(0).filteredPrint(printAttribs));
         }
     }
 }
