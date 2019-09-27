@@ -1,3 +1,4 @@
+//Daniel Deegan, Lauren Hibbs 
 import java.util.ArrayList;
 import java.io.*;
 import java.util.*;
@@ -20,7 +21,6 @@ public class SchoolSearch{
     while(!input.equals("Quit") && !input.equals("Q")){
         if(inputs.length > 1) {
             searchParam = inputs[1].trim();
-            System.out.println(searchParam);
         } 
         else { 
             searchParam = ""; 
@@ -45,7 +45,6 @@ public class SchoolSearch{
             case "Grade":
                 String[] highLowParam = searchParam.split(" ");
                 if(highLowParam.length > 1 && (highLowParam[1].equals("H") || highLowParam[1].equals("High"))){
-                    System.out.println("Grade high"); 
                     try{
                      searchCmds.gradeHigh(Integer.parseInt(highLowParam[0]));
                     }
@@ -92,8 +91,5 @@ public class SchoolSearch{
         inputs = inputLine.split(":");
         input = inputs[0].trim(); 
     }
-
-    System.out.println("quit");
-
   }
 }
