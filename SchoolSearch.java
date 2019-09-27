@@ -18,9 +18,9 @@ public class SchoolSearch{
     String searchParam = "";   
 
     while(!input.equals("Quit") && !input.equals("Q")){
-        System.out.println(searchParam); 
         if(inputs.length > 1) {
             searchParam = inputs[1].trim();
+            System.out.println(searchParam);
         } 
         else { 
             searchParam = ""; 
@@ -53,7 +53,7 @@ public class SchoolSearch{
                     }
                 }  
                 else if (highLowParam.length > 1 && (highLowParam[1].equals("L") || highLowParam[1].equals("Low"))){
-                    //searchCmds.studentLastName(searchParam);
+                    searchCmds.gradeLow(Integer.parseInt(highLowParam[0]));
                 }
                 else {
                     try{

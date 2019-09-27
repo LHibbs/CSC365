@@ -19,7 +19,6 @@ public class SchoolSearchCmds {
             Stream.of("stLastName", "stFirstName", "grade", "classroom", "tLastName", "tFirstName")
             .collect(Collectors.toList());
 
-        System.out.println("print dammit"); 
         executeQuery(s -> s.getStLastName().equals(lastName),
                      s -> System.out.println(s.filteredPrint(printAttribs))); 
     }
@@ -56,21 +55,24 @@ public class SchoolSearchCmds {
             Stream.of("stLastName", "stFirstName", "GPA", "tLastName", "tFirstName", "bus")
             .collect(Collectors.toList());
 
+        Comparator<Student> c = Comparator.comparing((Student s) -> s.getGPA());
+
         executeQuery(s -> s.getGrade() == grade,
-                     s -> System.out.println(s.filteredPrint(printAttribs)),
-                    (Student one, Student two) -> 
-                        Integer.valueOf(one.getGrade()).compareTo(Integer.valueOf(two.getGrade()))); 
+                    printAttribs,
+                    c.reversed()); 
     }
 
-    /*public void gradeLow(int grade) {
+    public void gradeLow(int grade) {
         List<String> printAttribs = 
-            Stream.of("stLastName", "stFirstName")
+            Stream.of("stLastName", "stFirstName", "GPA", "tLastName", "tFirstName", "bus")
             .collect(Collectors.toList());
 
+        Comparator<Student> c = Comparator.comparing((Student s) -> s.getGPA());
+         
         executeQuery(s -> s.getGrade() == grade,
-                     s -> System.out.println(s.filteredPrint(printAttribs)),
-                    (Student one, Student two)-> one.getGrade().compareTo(two.getGrade())); 
-    }*/
+                    printAttribs,
+                    c.reversed()); 
+    }
 
     public void bus(int busNum) {
         List<String> printAttribs = 
@@ -115,12 +117,16 @@ public class SchoolSearchCmds {
             .forEach(print);
     }
 
-    public void executeQuery(Predicate<Student> pred, Consumer<Student> print, Comparator<Student> sort) {
-        listStudents
+    public void executeQuery(Predicate<Student> pred, List<String> printAttribs, Comparator<Student> sort) {
+        List<Student> highest = listStudents
             .stream()
             .filter(pred)
             .sorted(sort)
-            .collect(Collectors.toList())
-            .get(0); 
+            .collect(Collectors.toList());
+        
+        //can't figure out optionals with the stream
+        for (Student s : highest) { 
+            s.filteredPrint(printAttribs); 
+        }
     }
 }
