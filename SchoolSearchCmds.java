@@ -71,7 +71,7 @@ public class SchoolSearchCmds {
          
         executeQuery(s -> s.getGrade() == grade,
                     printAttribs,
-                    c.reversed()); 
+                    c); 
     }
 
     public void bus(int busNum) {
@@ -125,8 +125,8 @@ public class SchoolSearchCmds {
             .collect(Collectors.toList());
         
         //can't figure out optionals with the stream
-        for (Student s : highest) { 
-            s.filteredPrint(printAttribs); 
+        if (highest.size() > 0) {
+            System.out.println(highest.get(0).filteredPrint(printAttribs)); 
         }
     }
 }
