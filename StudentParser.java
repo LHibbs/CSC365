@@ -3,6 +3,7 @@
 import java.util.*;
 import java.util.regex.Pattern;
 import java.io.*;
+
 public class StudentParser{
   Scanner scan;
   File file;
