@@ -1,5 +1,6 @@
 // CSC 365. Fall 2019
 // Lab 1-1 test suite
+//Daniel Deegan & Lauren Hibbs
 
 //TC-1
 //Tests Requirements R3, R4
@@ -20,7 +21,7 @@ S: NEMO
 //long form command name, existing student
 //expected output: HAVIR,BOBBIE,2,108,HAMER,GAVIN
 
-S: HAVIR
+Student: HAVIR
 
 //TC-4
 //Tests Requirements R3, R5
@@ -89,6 +90,7 @@ T: BEX
 //NOVICK,ROLLAND
 //DURAND,CARLEE
 //BEX,TAMESHA
+//DELUNA,KRYSTAL
 //COMO,ZANDRA
 
 G: 4
@@ -108,6 +110,7 @@ G: 4
 //NOVICK,ROLLAND
 //DURAND,CARLEE
 //BEX,TAMESHA
+//DELUNA,KRYSTAL
 //COMO,ZANDRA
 
 Grade: 4
