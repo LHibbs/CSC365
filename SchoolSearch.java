@@ -1,86 +1,83 @@
 import java.util.ArrayList;
-import java.util.List;
-import java.util.function.*; 
-import java.util.stream.Collectors; 
-import java.util.stream.Stream;  
+import java.io.*;
+import java.util.*;
 
-public class SchoolSearch {
+public class SchoolSearch{
 
-    private ArrayList<Student> listStudents;
+  public static void main(String[] args){
+    ArrayList<Student> s = new ArrayList<Student>();
+    StudentParser p = new StudentParser();
+    s = p.parse();
+    SchoolSearchCmds searchCmds = new SchoolSearchCmds(s); 
 
-    public SchoolSearch(ArrayList<Student> s){
-        listStudents = s; 
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Enter search command: "); 
+    String inputLine = scanner.nextLine(); 
+    String[] inputs = inputLine.split(":");
+    String input = inputs[0].trim(); 
+    String searchParam = "";   
+
+    while(!input.equals("Quit") && !input.equals("Q")){
+        System.out.println(searchParam); 
+        if(inputs.length > 1) {
+            searchParam = inputs[1].trim();
+        } 
+        else { 
+            searchParam = ""; 
+        }
+         
+        switch(input){
+            case "S":
+            case "Student": 
+                String[] busParam = searchParam.split(" "); 
+                if(busParam.length > 1 && (busParam[1].equals("B") || busParam[1].equals("Bus"))){
+                    searchCmds.studentLastNameBus(busParam[0]);
+                }  
+                else {
+                    searchCmds.studentLastName(searchParam);
+                }
+                break;
+            case "T": 
+            case "Teacher":
+                searchCmds.teacherLastName(searchParam);
+                break; 
+            case "G":
+            case "Grade":
+                String[] highLowParam = searchParam.split(" ");
+                if(highLowParam.length > 1 && (highLowParam[1].equals("H") || highLowParam[1].equals("High"))){
+                    System.out.println("Grade high"); 
+                    searchCmds.gradeHigh(Integer.parseInt(highLowParam[0]));
+                }  
+                else if (highLowParam.length > 1 && (highLowParam[1].equals("L") || highLowParam[1].equals("Low"))){
+                    //searchCmds.studentLastName(searchParam);
+                }
+                else {
+                    searchCmds.grade(Integer.parseInt(highLowParam[0]));
+                }
+                break; 
+            case "B":
+            case "Bus":
+                searchCmds.bus(Integer.parseInt(searchParam));
+                break; 
+            case "A":
+            case "Average":
+                //searchCmds.average(Integer.parseInt(searchParam)); 
+                break; 
+            case "I": 
+            case "Info":
+                //searchCmds.info(); 
+                break; 
+            default:
+                break; 
+        }
+
+        System.out.print("\nEnter search command: "); 
+        inputLine = scanner.nextLine(); 
+        inputs = inputLine.split(":");
+        input = inputs[0].trim(); 
     }
 
-    public void studentLastName(String lastName){
-        List<String> printAttribs = 
-            Stream.of("stLastName", "stFirstName", "grade", "classroom", "tLastName", "tFirstName")
-            .collect(Collectors.toList());
+    System.out.println("quit");
 
-        System.out.println("print dammit"); 
-        executeQuery(s -> s.getStLastName().equals(lastName),
-                     s -> System.out.println(s.filteredPrint(printAttribs))); 
-    }
-
-    public void studentLastNameBus(String lastName) { 
-        List<String> printAttribs = 
-            Stream.of("stLastName", "stFirstName", "bus")
-            .collect(Collectors.toList());
-
-        executeQuery(s -> s.getStLastName().equals(lastName),
-                     s -> System.out.println(s.filteredPrint(printAttribs))); 
-    }
-
-    public void teacherLastName(String lastName) {
-        List<String> printAttribs = 
-            Stream.of("stLastName", "stFirstName")
-            .collect(Collectors.toList());
-
-        executeQuery(s -> s.getTLastName().equals(lastName),
-                     s -> System.out.println(s.filteredPrint(printAttribs))); 
-    }
-
-    public void grade(int grade) {
-        List<String> printAttribs = 
-            Stream.of("stLastName", "stFirstName")
-            .collect(Collectors.toList());
-
-        executeQuery(s -> s.getGrade() == grade,
-                     s -> System.out.println(s.filteredPrint(printAttribs))); 
-    }
-
-    public void gradeHigh(int grade) {
-        List<String> printAttribs = 
-            Stream.of("stLastName", "stFirstName")
-            .collect(Collectors.toList());
-
-        executeQuery(s -> s.getGrade() == grade,
-                     s -> System.out.println(s.filteredPrint(printAttribs)),
-                    (Student one, Student two)-> one.getGrade().compareTo(two.getGrade())); 
-    }
-
-    public void bus(int busNum) {
-        List<String> printAttribs = 
-            Stream.of("stLastName", "stFirstName", "grade", "classroom")
-            .collect(Collectors.toList());
-
-        executeQuery(s -> s.getBus() == busNum,
-                     s -> System.out.println(s.filteredPrint(printAttribs))); 
-    }
-
-    public void executeQuery(Predicate<Student> pred, Consumer<Student> print) {
-        listStudents
-            .stream()
-            .filter(pred)
-            .forEach(print);
-    }
-
-    public void executeQuery(Predicate<Student> pred, Consumer<Student> print, Comparator<Student> sort) {
-        listStudents
-            .stream()
-            .filter(pred)
-            .sorted(sort)
-            .collect(Collectors.toList())
-            .get(0); 
-    }
+  }
 }

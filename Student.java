@@ -74,38 +74,42 @@ public class Student {
     }
 
     public String filteredPrint(List<String> attribs) {
-        System.out.println("in filtered print"); 
-        System.out.println(attribs); 
         String s = ""; 
         Iterator<String> it = attribs.iterator(); 
+        boolean first = true; 
         while(it.hasNext()) { 
             switch(it.next()){
                 case "stLastName": 
-                    s += " " + stLastName;
+                    s += "," + stLastName;
                     break;  
                 case "stFirstName": 
-                    s += " " + stFirstName; 
+                    s += "," + stFirstName; 
                     break;  
                 case "grade":
-                    s += " " + grade; 
+                    s += "," + grade; 
                     break;  
                 case "classroom":
-                    s += " " + classroom;
+                    s += "," + classroom;
                     break;  
                 case "bus":
-                    s += " " + bus;
+                    s += "," + bus;
                     break;   
                 case "GPA" : 
-                    s += " " + GPA;
+                    s += "," + GPA;
                     break;   
                 case "tLastName" : 
-                    s += " " + tLastName;
+                    s += "," + tLastName;
                     break;  
                 case "tFirstName": 
-                    s += " " + tFirstName;
+                    s += "," + tFirstName;
                     break;   
                 default: 
                     System.out.println("error"); 
+            }
+            //remove the leading comma on first entry
+            if(first){
+                s = s.substring(1); 
+                first = false; 
             }
         }
         return s.trim(); 
