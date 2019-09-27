@@ -46,26 +46,42 @@ public class SchoolSearch{
                 String[] highLowParam = searchParam.split(" ");
                 if(highLowParam.length > 1 && (highLowParam[1].equals("H") || highLowParam[1].equals("High"))){
                     System.out.println("Grade high"); 
-                    searchCmds.gradeHigh(Integer.parseInt(highLowParam[0]));
+                    try{
+                     searchCmds.gradeHigh(Integer.parseInt(highLowParam[0]));
+                    }
+                    catch(NumberFormatException e){
+                    }
                 }  
                 else if (highLowParam.length > 1 && (highLowParam[1].equals("L") || highLowParam[1].equals("Low"))){
                     //searchCmds.studentLastName(searchParam);
                 }
                 else {
-                    searchCmds.grade(Integer.parseInt(highLowParam[0]));
+                    try{
+                     searchCmds.grade(Integer.parseInt(highLowParam[0]));
+                    }
+                    catch(NumberFormatException e){
+                    }
                 }
                 break; 
             case "B":
             case "Bus":
-                searchCmds.bus(Integer.parseInt(searchParam));
+                try{
+                  searchCmds.bus(Integer.parseInt(searchParam));
+                }
+                catch(NumberFormatException e){
+                }
                 break; 
             case "A":
             case "Average":
-                //searchCmds.average(Integer.parseInt(searchParam)); 
+                try{
+                   searchCmds.average(Integer.parseInt(searchParam)); 
+                }
+                catch(NumberFormatException e){
+                }
                 break; 
             case "I": 
             case "Info":
-                //searchCmds.info(); 
+                searchCmds.info(); 
                 break; 
             default:
                 break; 

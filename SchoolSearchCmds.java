@@ -4,6 +4,7 @@ import java.util.function.*;
 import java.util.stream.Collectors; 
 import java.util.stream.Stream;  
 import java.util.*; 
+import java.text.*;
 
 public class SchoolSearchCmds {
 
@@ -79,6 +80,33 @@ public class SchoolSearchCmds {
         executeQuery(s -> s.getBus() == busNum,
                      s -> System.out.println(s.filteredPrint(printAttribs))); 
     }
+
+   public void average(int gradeNum){
+      int num = 0;
+      double gpas = 0;
+      for(Student s: listStudents){
+         if(s.getGrade() == gradeNum){
+            num++;
+            gpas += s.getGPA();
+         }
+      }
+      if(num == 0){
+         return;
+      }
+      double av = gpas/num;
+      DecimalFormat df = new DecimalFormat("#.##");
+      System.out.print(df.format(av));
+   }
+
+   public void info(){
+      int[] counts = {0, 0, 0, 0, 0, 0, 0};
+      for(Student s: listStudents){
+         counts[s.getGrade()]++;
+      }
+      for(int i = 0; i < 7; i++){
+         System.out.println(i + ": " + counts[i]);
+      }
+   }
 
     public void executeQuery(Predicate<Student> pred, Consumer<Student> print) {
         listStudents
