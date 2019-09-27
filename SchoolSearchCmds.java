@@ -97,7 +97,7 @@ public class SchoolSearchCmds {
       }
       double av = gpas/num;
       DecimalFormat df = new DecimalFormat("#.##");
-      System.out.print(df.format(av));
+      System.out.println(df.format(av));
    }
 
    public void info(){
