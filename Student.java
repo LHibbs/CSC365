@@ -1,4 +1,7 @@
 //Lauren Hibbs, Daniel Deegan
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class Student {
 
@@ -70,4 +73,31 @@ public class Student {
       return stFirstName + " " + stLastName + ", " + grade + ", " + classroom + ", " + bus + ", " + GPA + ", " + tFirstName + " " + tLastName;
     }
 
+    public String filteredPrint(List<String> attribs) {
+        String s = ""; 
+        Iterator<String> it = attribs.iterator(); 
+        while(it.hasNext()) { 
+            switch(it.next()){
+                case "stLastName": 
+                    s += " " + stLastName; 
+                case "stFirstName": 
+                    s += " " + stFirstName; 
+                case "grade":
+                    s += " " + grade; 
+                case "classroom":
+                    s += " " + classroom;
+                case "bus":
+                    s += " " + bus; 
+                case "GPA" : 
+                    s += " " + GPA; 
+                case "tLastName" : 
+                    s += " " + tLastName;
+                case "tFirstName": 
+                    s += " " + tFirstName; 
+                default: 
+                    System.out.println("error"); 
+            }
+        }
+        return s.trim(); 
+    }
 }
