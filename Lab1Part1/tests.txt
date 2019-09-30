@@ -1,0 +1,289 @@
+// CSC 365. Fall 2019
+// Lab 1-1 test suite
+//Daniel Deegan & Lauren Hibbs
+
+//TC-1
+//Tests Requirements R3, R4
+//short form command name, existing student
+//expected output: HAVIR,BOBBIE,2,108,HAMER,GAVIN
+
+S: HAVIR
+
+//TC-2
+//Tests Requirements R3, R4
+//short form command name, non-existing student
+//expected output: <empty line>
+
+S: NEMO
+
+//TC-3
+//Tests Requirements R3, R4
+//long form command name, existing student
+//expected output: HAVIR,BOBBIE,2,108,HAMER,GAVIN
+
+Student: HAVIR
+
+//TC-4
+//Tests Requirements R3, R5
+//short form command names, existing student, additional command
+//expected output: OBREIN,STAN,52
+
+S: OBREIN B
+
+//TC-5
+//Tests Requirements R3, R5
+//long form command names, existing student, additional command
+//expected output: OBREIN,STAN,52
+
+Student: OBREIN Bus
+
+//TC-6
+//Tests Requirements R3, R6
+//short form command name, existing teacher
+//expected output: CORKER,CARTER
+//IMMERMAN,DEVIN
+//RAPOSE,ALONZO
+//OGAS,ERVIN
+//MASSART,ELDON
+//BEX,TAMESHA
+
+T: HANTZ
+
+//TC-7
+//Tests Requirements R3, R6
+//long form command name, existing teacher
+//expected output: CORKER,CARTER
+//IMMERMAN,DEVIN
+//RAPOSE,ALONZO
+//OGAS,ERVIN
+//MASSART,ELDON
+//BEX,TAMESHA
+
+Teacher: HANTZ
+
+//TC-8
+//Tests Requirements R3, R6
+//short form command name, non-existing teacher
+//expected output: <empty line>
+
+T: FAKER
+
+//TC-9
+//Tests Requirements R3, R6
+//long form command name, student name
+//expected output: <empty line>
+
+T: BEX
+
+//TC-10
+//Tests Requirements R3, R7
+//short form command name, valid grade
+//expected output: CORKER,CARTER
+//IMMERMAN,DEVIN
+//RAPOSE,ALONZO
+//WORBINGTON,DEEDRA
+//OGAS,ERVIN
+//GUICE,CODI
+//GLOR,HUNG
+//GUM,NOAH
+//MASSART,ELDON
+//NOVICK,ROLLAND
+//DURAND,CARLEE
+//BEX,TAMESHA
+//DELUNA,KRYSTAL
+//COMO,ZANDRA
+
+G: 4
+
+//TC-11
+//Tests Requirements R3, R7
+//long form command name, valid grade
+//expected output: CORKER,CARTER
+//IMMERMAN,DEVIN
+//RAPOSE,ALONZO
+//WORBINGTON,DEEDRA
+//OGAS,ERVIN
+//GUICE,CODI
+//GLOR,HUNG
+//GUM,NOAH
+//MASSART,ELDON
+//NOVICK,ROLLAND
+//DURAND,CARLEE
+//BEX,TAMESHA
+//DELUNA,KRYSTAL
+//COMO,ZANDRA
+
+Grade: 4
+
+//TC-12
+//Tests Requirements R3, R7
+//long form command name, invalid grade
+//expected output: <empty line>
+
+Grade: 14
+
+//TC-13
+//Tests Requirements R3, R8
+//short form command name, valid bus route
+//expected output:COOKUS,XUAN,3,107
+//ELHADDAD,SHANTE,3,107
+//IMMERMAN,DEVIN,4,105
+//OBREIN,STAN,6,111
+//CORONADO,DIMPLE,6,102
+//SARAO,DIEDRA,2,108
+//EARLY,TORY,3,107
+//KEMERER,ROSETTA,6,102
+
+B: 52
+
+//TC-14
+//Tests Requirements R3, R8
+//long form command name, valid bus route
+//expected output:COOKUS,XUAN,3,107
+//ELHADDAD,SHANTE,3,107
+//IMMERMAN,DEVIN,4,105
+//OBREIN,STAN,6,111
+//CORONADO,DIMPLE,6,102
+//SARAO,DIEDRA,2,108
+//EARLY,TORY,3,107
+//KEMERER,ROSETTA,6,102
+
+Bus: 52
+
+//TC-15
+//Tests Requirements R3, R8
+//short form command name, invalid bus route
+//expected output:<empty line>
+
+B: 11037
+
+//TC-16
+//Tests Requirements R3, R9
+//short form command names, valid grade, extra command, high
+//expected output:LAMKIN,TAMA,3.23,NISTENDIRK,NANCY,55
+
+G: 6 H
+
+//TC-17
+//Tests Requirements R3, R9
+//long form command names, valid grade, extra command, high
+//expected output:LAMKIN,TAMA,3.23,NISTENDIRK,NANCY,55
+
+Grade: 6 High
+
+//TC-18
+//Tests Requirements R3, R9
+//short form command names, valid grade, extra command, low
+//expected output:KOZOLA,BUSTER,2.76,HAMER,GAVIN,55
+
+G: 2 L
+
+//TC-19
+//Tests Requirements R3, R9
+//long form command names, valid grade, extra command, low
+//expected output:KOZOLA,BUSTER,2.76,HAMER,GAVIN,55
+
+Grade: 2 Low
+
+//TC-20
+//Tests Requirements R3, R9
+//short form command names, invalid grade, extra command, low
+//expected output:<empty line>
+
+G: -5 L
+
+//TC-21
+//Tests Requirements R3, R10
+//short form command names, valid grade
+//expected output:3.05
+
+A: 3
+
+//TC-22
+//Tests Requirements R3, R10
+//long form command names, valid grade
+//expected output:3.05
+
+Average: 3
+
+//TC-23
+//Tests Requirements R3, R10
+//short form command names, invalid grade
+//expected output:<empty line>
+
+A: 300
+
+//TC-24
+//Tests Requirements R3, R11
+//short form command names
+//expected output:0: 0
+//1:2
+//2:13
+//3:9
+//4:15
+//5:0
+//6:21
+
+I
+
+//TC-25
+//Tests Requirements R3, R11
+//long form command names
+//expected output:0: 0
+//1:2
+//2:13
+//3:9
+//4:15
+//5:0
+//6:21
+
+Info
+
+//TC-26
+//Tests Requirements R3, E1
+//invalid command
+//expected output:<empty line>
+
+Z:
+
+//TC-26
+//Tests Requirements R3, E1
+//invalid command
+//expected output:<empty line>
+
+Wheeeeee
+
+//TC-27
+//Tests Requirements R3, E1
+//invalid command
+//expected output:<empty line>
+
+516
+
+//TC-28
+//Tests Requirements R3, E1
+//valid command, invalid arguments
+//expected output:<empty line>
+
+G: apple
+
+//TC-29
+// Tests Requirments R3, R13
+// quit command
+// expected output: program terminates
+
+Q
+
+//TC-30
+//Tests Requirements E1
+//students.txt not present
+//expected output:sudents.txt not found <program terminates>
+
+n/a
+
+//TC-31
+//Tests Requirements E1
+//students.txt not formatted correctly
+//expected output:Invalid file! <program terminates>
+
+n/a

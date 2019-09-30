@@ -1,0 +1,15 @@
+Compile the java files by running the command [javac *.java] in the directory that contains the program's java files. The program can then by run by entering the command [java schoolsearch] in the same directory.
+
+Commands: 
+S[tudent]: <lastname> [B[us]]
+T[eacher]: <lastname>
+B[us]: <number>
+G[rade]: <number> [H[igh]|L[ow]]
+A[verage]: <number>
+I[nfo]
+Q[uit]
+
+Note: When searching by student or by teacher, names must be entered in ALL CAPS to match the way they're formatted in students.txt
+
+Daniel Deegan
+Lauren Hibbs
