@@ -4,15 +4,15 @@ public class Teacher{
   private int classroom;
 
   public Teacher(){
-    lastname = "ERROR";
+    lastName = "ERROR";
     firstName = "ERROR";
     classroom = -1;
   }
 
-  public Teacher(String ln, String fn, int class){
+  public Teacher(String ln, String fn, int room){
     lastName = ln;
     firstName = fn;
-    classroom = class;
+    classroom = room;
   }
 
   public String getLastName() {

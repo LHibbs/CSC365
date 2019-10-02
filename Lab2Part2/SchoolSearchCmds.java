@@ -11,9 +11,11 @@ import java.text.*;
 public class SchoolSearchCmds {
 
     private ArrayList<Student> listStudents;
+    private ArrayList<Teacher> listTeachers;
 
-    public SchoolSearchCmds(ArrayList<Student> s) {
+    public SchoolSearchCmds(ArrayList<Student> s, ArrayList<Teacher> t) {
         listStudents = s;
+        listTeachers = t;
     }
 
     public void studentLastName(String lastName) {
@@ -21,19 +23,26 @@ public class SchoolSearchCmds {
                 .of("stLastName", "stFirstName", "grade", "classroom", "tLastName", "tFirstName")
                 .collect(Collectors.toList());
 
-        executeQuery(s -> s.getStLastName().equals(lastName), s -> System.out.println(s.filteredPrint(printAttribs)));
+        executeQuery(s -> s.getLastName().equals(lastName), s -> System.out.println(s.filteredPrint(printAttribs)));
     }
 
     public void studentLastNameBus(String lastName) {
         List<String> printAttribs = Stream.of("stLastName", "stFirstName", "bus").collect(Collectors.toList());
 
-        executeQuery(s -> s.getStLastName().equals(lastName), s -> System.out.println(s.filteredPrint(printAttribs)));
+        executeQuery(s -> s.getLastName().equals(lastName), s -> System.out.println(s.filteredPrint(printAttribs)));
     }
 
     public void teacherLastName(String lastName) {
         List<String> printAttribs = Stream.of("stLastName", "stFirstName").collect(Collectors.toList());
-
-        executeQuery(s -> s.getTLastName().equals(lastName), s -> System.out.println(s.filteredPrint(printAttribs)));
+        int c = 0;
+        for(Teacher t : listTeachers){
+          if(lastName.equals(t.getLastName())){
+            c = t.getClassroom();
+            break;
+          }
+        }
+        final int j = c;
+        executeQuery(s -> s.getClassroom() == j, s -> System.out.println(s.filteredPrint(printAttribs)));
     }
 
     public void grade(int grade) {
@@ -92,6 +101,51 @@ public class SchoolSearchCmds {
         for (int i = 0; i < 7; i++) {
             System.out.println(i + ": " + counts[i]);
         }
+    }
+
+    public void classSearch(int num){
+      for(Student s : listStudents){
+        if(s.getClassroom() == num){
+          System.out.println(s.getLastName() + "," + s.getFirstName());
+        }
+      }
+    }
+
+    public void classSearchTeacher(int num){
+      for(Teacher t : listTeachers){
+        if(t.getClassroom() == num){
+          System.out.println(t.getLastName() + "," + t.getFirstName());
+        }
+      }
+    }
+
+    public void gradeSearch(int num){
+      ArrayList<Integer> rooms = new ArrayList<Integer>();
+      for(Student s : listStudents){
+        if(s.getGrade() == num){
+          if(!rooms.contains(s.getClassroom())){
+            rooms.add(s.getClassroom());
+          }
+        }
+      }
+      for(Teacher t : listTeachers){
+        if(rooms.contains(t.getClassroom())){
+          System.out.println(t.getLastName()+ "," + t.getFirstName());
+        }
+      }
+    }
+
+    public void classroomList(){
+      int[] counts = new int[20];
+      for(Student s : listStudents){
+        counts[s.getClassroom()%100]++;
+      }
+      for(int i = 0; i < 20; i++){
+        if(counts[i] != 0){
+            System.out.print(100 + i);
+            System.out.println(": " + counts[i]);
+        }
+      }
     }
 
     public void executeQuery(Predicate<Student> pred, Consumer<Student> print) {

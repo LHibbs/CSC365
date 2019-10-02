@@ -36,11 +36,11 @@ public class Student {
         tFirstName = tf;*/
     }
 
-    public String getStLastName() {
+    public String getLastName() {
         return stLastName;
     }
 
-    public String getStFirstName() {
+    public String getFirstName() {
         return stFirstName;
     }
 
