@@ -7,12 +7,11 @@ public class SchoolSearch{
 
   public static void main(String[] args){
     ArrayList<Student> s = new ArrayList<Student>();
-    ArrayList<Teacher> t = new ArrayList<Teacher>();
     HashMap<Integer, List<Teacher>> map = new HashMap<Integer, List<Teacher>>();
     StudentParser p = new StudentParser();
     s = p.parse();
     map = p.parseTeachers();
-    SchoolSearchCmds searchCmds = new SchoolSearchCmds(s, t, map);
+    SchoolSearchCmds searchCmds = new SchoolSearchCmds(s, map);
 
     Scanner scanner = new Scanner(System.in);
     System.out.print("Enter search command: ");

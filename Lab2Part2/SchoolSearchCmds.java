@@ -11,12 +11,10 @@ import java.text.*;
 public class SchoolSearchCmds {
 
     private ArrayList<Student> listStudents;
-    private ArrayList<Teacher> listTeachers;
     private HashMap<Integer, List<Teacher>> mapTeachers;
 
-    public SchoolSearchCmds(ArrayList<Student> s, ArrayList<Teacher> t, HashMap<Integer, List<Teacher>> m) {
+    public SchoolSearchCmds(ArrayList<Student> s, HashMap<Integer, List<Teacher>> m) {
         listStudents = s;
-        listTeachers = t;
         mapTeachers = m ;
     }
 
