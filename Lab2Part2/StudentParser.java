@@ -69,7 +69,7 @@ public class StudentParser {
                 lName = scan.next();
                 fName = scan.next();
                 classroom = scan.nextInt();
-                Teacher t = new Teacher(lName, fName);
+                Teacher t = new Teacher(lName, fName, classroom);
                 if(map.containsKey(classroom)){
                   map.get(classroom).add(t);
                 }

@@ -173,31 +173,6 @@ public class SchoolSearchCmds {
       }
     }
 
-    public void gradeAnalytics(int grade){
-
-    }
-
-    public void gradeAnalyticsAll(){
-        
-    }
-
-    public void teacherAnalytics(String lastname){
-        
-    }
-
-    public void teacherAnalyticsAll(){
-        
-    }
-
-    public void busAnalytics(int busNum){
-        
-    }
-
-    public void busAnalyticsAll(){
-        
-    }
-}
-
 public void gradeAnalytics(int gradeNum) {
     int num = 0;
     double gpas = 0;
@@ -226,13 +201,13 @@ public void teacherAnalytics(String name){
   double total = 0;
   double count = 0;
   for(Student s : listStudents){
-    if(rooms.contains(s.getClassroom)){
+    if(rooms.contains(s.getClassroom())){
       total += s.getGPA();
       count += 1.0;
     }
   }
   DecimalFormat df = new DecimalFormat("#.##");
-  double av = total/num;
+  double av = total/count;
   System.out.println(name + ": " + df.format(av));
 }
 
@@ -271,6 +246,8 @@ public void busAnalyticsAll(){
     }
   }
   for(Integer num : b){
-    busAnalytics(b);
+    busAnalytics(num);
   }
+}
+
 }
