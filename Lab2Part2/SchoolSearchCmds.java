@@ -12,26 +12,31 @@ public class SchoolSearchCmds {
 
     private ArrayList<Student> listStudents;
     private ArrayList<Teacher> listTeachers;
-    private HashMap<Int, List<Teacher>> mapTeachers; 
+    private HashMap<Integer, List<Teacher>> mapTeachers; 
 
-    public SchoolSearchCmds(ArrayList<Student> s, ArrayList<Teacher> t, HashMap<Int, List<Teacher>>, m) {
+    public SchoolSearchCmds(ArrayList<Student> s, ArrayList<Teacher> t, HashMap<Int, List<Teacher>> m) {
         listStudents = s;
         listTeachers = t;
         mapTeachers = m ; 
     }
 
     public void studentLastName(String lastName) {
-        List<String> printAttribs = Stream
-                .of("stLastName", "stFirstName", "grade", "classroom", "tLastName", "tFirstName")
-                .collect(Collectors.toList());
-
-        executeQuery(s -> s.getLastName().equals(lastName), s -> System.out.println(s.filteredPrint(printAttribs)));
+        for(Student s : listStudents) { 
+            if(s.getLastName().equals(lastName)){
+                for(Teacher t : mapTeachers.get(s.getClassroom())) {
+                    System.out.print(s.getLastName() + "," + s.getFirstName() + "," + s.getGrade() + "," + s.getClassroom() + 
+                        "," + t.getLastName() + "," + t.getFirstName()); 
+                }
+            }
+        }
     }
 
     public void studentLastNameBus(String lastName) {
-        List<String> printAttribs = Stream.of("stLastName", "stFirstName", "bus").collect(Collectors.toList());
-
-        executeQuery(s -> s.getLastName().equals(lastName), s -> System.out.println(s.filteredPrint(printAttribs)));
+        for(Student s : listStudents) { 
+            if(s.getLastName().equals(lastName)){
+                    System.out.print(s.getLastName() + "," + s.getFirstName() + "," + s.getBus()); 
+                }
+            } 
     }
 
     public void teacherLastName(String lastName) {
@@ -48,34 +53,49 @@ public class SchoolSearchCmds {
     }
 
     public void grade(int grade) {
-        List<String> printAttribs = Stream.of("stLastName", "stFirstName").collect(Collectors.toList());
-
-        executeQuery(s -> s.getGrade() == grade, s -> System.out.println(s.filteredPrint(printAttribs)));
+        for(Student s : listStudents) { 
+            if(s.getGrade() == grade)){
+                    System.out.print(s.getLastName() + "," + s.getFirstName()); 
+                }
+            } 
     }
 
     public void gradeHigh(int grade) {
-        List<String> printAttribs = Stream.of("stLastName", "stFirstName", "GPA", "tLastName", "tFirstName", "bus")
-                .collect(Collectors.toList());
-
-        Comparator<Student> c = Comparator.comparing((Student s) -> s.getGPA());
-
-        executeQuery(s -> s.getGrade() == grade, printAttribs, c.reversed());
+        Student highestStudent = listStudents.get(0); 
+        for(Student s : listStudents) { 
+            if(s.getGrade == grade){
+                if(s.getGPA() >= highestStudent.getGPA()){
+                    highestStudent = s; 
+                }
+            }
+        }
+        for(Teacher t : mapTeachers.get(highestStudent.getClassroom())) {
+            System.out.print(highestStudent.getLastName() + "," + highestStudent.getFirstName() + "," + highestStudent.getGPA() + "," + 
+                 + t.getLastName() + "," + t.getFirstName() + "," highestStudent.getBus()); 
+        }
     }
 
     public void gradeLow(int grade) {
-        List<String> printAttribs = Stream.of("stLastName", "stFirstName", "GPA", "tLastName", "tFirstName", "bus")
-                .collect(Collectors.toList());
-
-        Comparator<Student> c = Comparator.comparing((Student s) -> s.getGPA());
-
-        executeQuery(s -> s.getGrade() == grade, printAttribs, c);
+        Student lowestStudent = listStudents.get(0); 
+        for(Student s : listStudents) { 
+            if(s.getGrade == grade){
+                if(s.getGPA() <= lowestStudent.getGPA()){
+                    lowestStudent = s; 
+                }
+            }
+        }
+        for(Teacher t : mapTeachers.get(lowestStudent.getClassroom())) {
+            System.out.print(lowestStudent.getLastName() + "," + lowestStudent.getFirstName() + "," + lowestStudent.getGPA() + "," + 
+                 + t.getLastName() + "," + t.getFirstName() + "," lowestStudent.getBus()); 
+        }
     }
 
     public void bus(int busNum) {
-        List<String> printAttribs = Stream.of("stLastName", "stFirstName", "grade", "classroom")
-                .collect(Collectors.toList());
-
-        executeQuery(s -> s.getBus() == busNum, s -> System.out.println(s.filteredPrint(printAttribs)));
+        for(Student s : listStudents) { 
+            if(s.getBus() == busNum)){
+                    System.out.print(s.getLastName() + "," + s.getFirstName() + "," + s.getGrade() + "," + s.getClassroom()); 
+                }
+        } 
     }
 
     public void average(int gradeNum) {
@@ -148,18 +168,5 @@ public class SchoolSearchCmds {
             System.out.println(": " + counts[i]);
         }
       }
-    }
-
-    public void executeQuery(Predicate<Student> pred, Consumer<Student> print) {
-        listStudents.stream().filter(pred).forEach(print);
-    }
-
-    public void executeQuery(Predicate<Student> pred, List<String> printAttribs, Comparator<Student> sort) {
-        List<Student> filteredStudents = listStudents.stream().filter(pred).sorted(sort).collect(Collectors.toList());
-
-        // can't figure out optionals with the stream
-        if (filteredStudents.size() > 0) {
-            System.out.println(filteredStudents.get(0).filteredPrint(printAttribs));
-        }
     }
 }
