@@ -8,7 +8,7 @@ public class SchoolSearch{
   public static void main(String[] args){
     ArrayList<Student> s = new ArrayList<Student>();
     ArrayList<Teacher> t = new ArrayList<Teacher>();
-    HashMap<Int, List<Teacher>> map = new HashMap<Int, List<Teacher>>();
+    HashMap<Integer, List<Teacher>> map = new HashMap<Integer, List<Teacher>>();
     StudentParser p = new StudentParser();
     s = p.parse();
     map = p.parseTeachers();

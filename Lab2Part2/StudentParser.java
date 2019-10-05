@@ -58,8 +58,8 @@ public class StudentParser {
         return list;
     }
 
-    public HashMap<Int, List<Teacher>>> parseTeachers(){
-        HashMap<Int, List<Teacher>> map = new HashMap<Int, List<Teacher>>();
+    public HashMap<Integer, List<Teacher>> parseTeachers(){
+        HashMap<Integer, List<Teacher>> map = new HashMap<Integer, List<Teacher>>();
         String lName;
         String fName;
         int classroom;
@@ -69,7 +69,7 @@ public class StudentParser {
                 lName = scan.next();
                 fName = scan.next();
                 classroom = scan.nextInt();
-                Teacher t = new Teacher(lName, fName, classroom);
+                Teacher t = new Teacher(lName, fName);
                 if(map.containsKey(classroom)){
                   map.get(classroom).add(t);
                 }
@@ -83,6 +83,6 @@ public class StudentParser {
                 System.exit(-1);
             }
         }
-        return list;
+        return map;
     }
 }

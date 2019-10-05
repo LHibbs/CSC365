@@ -12,9 +12,9 @@ public class SchoolSearchCmds {
 
     private ArrayList<Student> listStudents;
     private ArrayList<Teacher> listTeachers;
-    private HashMap<Int, List<Teacher>> mapTeachers;
+    private HashMap<Integer, List<Teacher>> mapTeachers;
 
-    public SchoolSearchCmds(ArrayList<Student> s, ArrayList<Teacher> t, HashMap<Int, List<Teacher>>, m) {
+    public SchoolSearchCmds(ArrayList<Student> s, ArrayList<Teacher> t, HashMap<Integer, List<Teacher>> m) {
         listStudents = s;
         listTeachers = t;
         mapTeachers = m ;
@@ -35,7 +35,7 @@ public class SchoolSearchCmds {
     }
 
     public void teacherLastName(String lastName) {
-        List<String> printAttribs = Stream.of("stLastName", "stFirstName").collect(Collectors.toList());
+        /*List<String> printAttribs = Stream.of("stLastName", "stFirstName").collect(Collectors.toList());
         int c = 0;
         for(Teacher t : listTeachers){
           if(lastName.equals(t.getLastName())){
@@ -45,6 +45,7 @@ public class SchoolSearchCmds {
         }
         final int j = c;
         executeQuery(s -> s.getClassroom() == j, s -> System.out.println(s.filteredPrint(printAttribs)));
+        */
     }
 
     public void grade(int grade) {
