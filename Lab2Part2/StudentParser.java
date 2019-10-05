@@ -51,7 +51,7 @@ public class StudentParser {
                 Student s = new Student(lName, fName, grade, classroom, bus, GPA);
                 list.add(s);
             } catch (NoSuchElementException i) {
-                System.out.println("Invalid file!");
+                System.out.println("Invalid list.txt!");
                 System.exit(-1);
             }
         }
@@ -79,7 +79,7 @@ public class StudentParser {
                   map.put(classroom, list);
                 }
             } catch (NoSuchElementException i) {
-                System.out.println("Invalid file!");
+                System.out.println("Invalid teachers.txt!");
                 System.exit(-1);
             }
         }
