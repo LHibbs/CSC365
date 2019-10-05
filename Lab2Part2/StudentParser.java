@@ -25,8 +25,8 @@ public class StudentParser {
             System.out.println("teachers.txt not found");
             System.exit(-1);
         }
-        scan.useDelimiter(Pattern.compile(",|\r\n|\n"));
-        teacherScan.useDelimiter(Pattern.compile(",|\r\n|\n"));
+        scan.useDelimiter(Pattern.compile(",|\r\n|\n|, "));
+        teacherScan.useDelimiter(Pattern.compile(",|\r\n|\n|, "));
     }
 
     public ArrayList<Student> parse() {
