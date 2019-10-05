@@ -7,15 +7,16 @@ B[us]: <number>
 G[rade]: <number> [H[igh]|L[ow]] [T[eacher]]
 A[verage]: <number>
 I[nfo]
-C[lassroom]: <number> [T[eacher]] [E[nrollment]]
+C[lassroom]: <number> [T[eacher]]
+C[lassroom]: E[nrollment]
 Q[uit]
 
-Analytics: <number> Bus
-Analytics: Bus All
-Analytics: <lastname> Teacher
-Analytics: Teacher All
-Analytics: <number> Grade
-Analytics: Grade All
+An[alytics]: Bus <number> 
+An[alytics]: Bus All
+An[alytics]: Teacher <lastname> 
+An[alytics]: Teacher All
+An[alytics]: Grade <number> 
+An[alytics]: Grade All
 
 Note: When searching by student or by teacher, names must be entered in ALL CAPS to match the way they're formatted in students.txt
 
