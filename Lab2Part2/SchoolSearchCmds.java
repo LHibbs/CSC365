@@ -22,7 +22,7 @@ public class SchoolSearchCmds {
         for(Student s : listStudents) {
             if(s.getLastName().equals(lastName)){
                 for(Teacher t : mapTeachers.get(s.getClassroom())) {
-                    System.out.print(s.getLastName() + "," + s.getFirstName() + "," + s.getGrade() + "," + s.getClassroom() +
+                    System.out.println(s.getLastName() + "," + s.getFirstName() + "," + s.getGrade() + "," + s.getClassroom() +
                         "," + t.getLastName() + "," + t.getFirstName());
                 }
             }
@@ -32,7 +32,7 @@ public class SchoolSearchCmds {
     public void studentLastNameBus(String lastName) {
         for(Student s : listStudents) {
             if(s.getLastName().equals(lastName)){
-                    System.out.print(s.getLastName() + "," + s.getFirstName() + "," + s.getBus());
+                    System.out.println(s.getLastName() + "," + s.getFirstName() + "," + s.getBus());
                 }
             }
     }
@@ -60,7 +60,7 @@ public class SchoolSearchCmds {
     public void grade(int grade) {
         for(Student s : listStudents) {
             if(s.getGrade() == grade){
-                    System.out.print(s.getLastName() + "," + s.getFirstName());
+                    System.out.println(s.getLastName() + "," + s.getFirstName());
                 }
             }
     }
@@ -75,7 +75,7 @@ public class SchoolSearchCmds {
             }
         }
         for(Teacher t : mapTeachers.get(highestStudent.getClassroom())) {
-            System.out.print(highestStudent.getLastName() + "," + highestStudent.getFirstName() + "," + highestStudent.getGPA() + "," +
+            System.out.println(highestStudent.getLastName() + "," + highestStudent.getFirstName() + "," + highestStudent.getGPA() + "," +
                 t.getLastName() + "," + t.getFirstName() + "," + highestStudent.getBus());
         }
     }
@@ -90,7 +90,7 @@ public class SchoolSearchCmds {
             }
         }
         for(Teacher t : mapTeachers.get(lowestStudent.getClassroom())) {
-            System.out.print(lowestStudent.getLastName() + "," + lowestStudent.getFirstName() + "," + lowestStudent.getGPA() + "," +
+            System.out.println(lowestStudent.getLastName() + "," + lowestStudent.getFirstName() + "," + lowestStudent.getGPA() + "," +
                  t.getLastName() + "," + t.getFirstName() + "," + lowestStudent.getBus());
         }
     }
@@ -98,7 +98,7 @@ public class SchoolSearchCmds {
     public void bus(int busNum) {
         for(Student s : listStudents) {
             if(s.getBus() == busNum){
-                    System.out.print(s.getLastName() + "," + s.getFirstName() + "," + s.getGrade() + "," + s.getClassroom());
+                    System.out.println(s.getLastName() + "," + s.getFirstName() + "," + s.getGrade() + "," + s.getClassroom());
                 }
         }
     }
@@ -144,7 +144,7 @@ public class SchoolSearchCmds {
       }
     }
 
-    public void gradeSearch(int num){
+    public void gradeSearchTeacher(int num){
       ArrayList<Integer> rooms = new ArrayList<Integer>();
       for(Student s : listStudents){
         if(s.getGrade() == num){
@@ -154,7 +154,7 @@ public class SchoolSearchCmds {
         }
       }
       for(Integer i : rooms){
-        for(Teacher t : mapTeachers.get(num)){
+        for(Teacher t : mapTeachers.get(i)){
           System.out.println(t.getLastName() + "," + t.getFirstName());
         }
       }

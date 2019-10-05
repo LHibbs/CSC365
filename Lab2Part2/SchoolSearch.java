@@ -57,7 +57,7 @@ public class SchoolSearch{
                     searchCmds.gradeLow(Integer.parseInt(highLowParam[0]));
                 }
                 else if (highLowParam.length > 1 && (highLowParam[1].equals("T") || highLowParam[1].equals("Teacher"))){
-                    searchCmds.gradeSearch(Integer.parseInt(highLowParam[0]));
+                    searchCmds.gradeSearchTeacher(Integer.parseInt(highLowParam[0]));
                 }
                 else {
                     try{
@@ -87,27 +87,28 @@ public class SchoolSearch{
             case "Info":
                 searchCmds.info();
                 break;
+            case "An": 
             case "Analytics":
                 String[] statsParam = searchParam.split(" ");
-                if(statsParam.length > 1 && statsParam[1].equals("Grade")){
-                    if(statsParam.length > 2 && statsParam[2].equals("All")) {
+                if(statsParam[0].equals("Grade")){
+                    if(statsParam.length > 1 && statsParam[1].equals("All")) {
                         searchCmds.gradeAnalyticsAll(); 
                     } else {
-                        searchCmds.gradeAnalytics(Integer.parseInt(statsParam[0])); 
+                        searchCmds.gradeAnalytics(Integer.parseInt(statsParam[1])); 
                     }
                 }
-                else if(statsParam.length > 1 && statsParam[1].equals("Teacher")){
-                    if(statsParam.length > 2 && statsParam[2].equals("All")) {
+                else if(statsParam[0].equals("Teacher")){
+                    if(statsParam.length > 1 && statsParam[1].equals("All")) {
                         searchCmds.teacherAnalyticsAll(); 
                     } else {
-                        searchCmds.teacherAnalytics(statsParam[0]); 
+                        searchCmds.teacherAnalytics(statsParam[1]); 
                     }
                 }
-                else if(statsParam.length > 1 && statsParam[1].equals("Bus")){
-                    if(statsParam.length > 2 && statsParam[2].equals("All")) {
+                else if(statsParam[0].equals("Bus")){
+                    if(statsParam.length > 1 && statsParam[1].equals("All")) {
                         searchCmds.busAnalyticsAll(); 
                     } else {
-                        searchCmds.busAnalytics(Integer.parseInt(statsParam[0])); 
+                        searchCmds.busAnalytics(Integer.parseInt(statsParam[1])); 
                     }
                 }
                 break;
@@ -117,7 +118,7 @@ public class SchoolSearch{
                 if(teachParam.length > 1 && (teachParam[1].equals("T") || teachParam[1].equals("Teacher"))){
                     searchCmds.classSearchTeacher(Integer.parseInt(teachParam[0]));
                 }
-                else if(teachParam.length > 1 && (teachParam[1].equals("E") || teachParam[1].equals("Enrollment"))){
+                else if(teachParam[0].equals("E") || teachParam[0].equals("Enrollment")){
                     searchCmds.classroomList(); 
                 }
                 else {
