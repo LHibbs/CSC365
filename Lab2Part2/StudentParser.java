@@ -58,8 +58,8 @@ public class StudentParser {
         return list;
     }
 
-    public ArrayList<Teacher> parseTeachers(){
-        ArrayList<Teacher> list = new ArrayList<Teacher>();
+    public HashMap<Integer, List<Teacher>> parseTeachers(){
+        HashMap<Integer, List<Teacher>> map = new HashMap<Integer, List<Teacher>>();
         String lName;
         String fName;
         int classroom;
@@ -69,13 +69,20 @@ public class StudentParser {
                 lName = scan.next();
                 fName = scan.next();
                 classroom = scan.nextInt();
-                Teacher t = new Teacher(lName, fName, classroom);
-                list.add(t);
+                Teacher t = new Teacher(lName, fName);
+                if(map.containsKey(classroom)){
+                  map.get(classroom).add(t);
+                }
+                else{
+                  ArrayList<Teacher> list = new ArrayList<Teacher>();
+                  list.add(t);
+                  map.put(classroom, list);
+                }
             } catch (NoSuchElementException i) {
                 System.out.println("Invalid file!");
                 System.exit(-1);
             }
         }
-        return list;
+        return map;
     }
 }

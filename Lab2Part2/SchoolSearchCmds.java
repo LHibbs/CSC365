@@ -12,12 +12,12 @@ public class SchoolSearchCmds {
 
     private ArrayList<Student> listStudents;
     private ArrayList<Teacher> listTeachers;
-    private HashMap<Integer, List<Teacher>> mapTeachers; 
+    private HashMap<Integer, List<Teacher>> mapTeachers;
 
-    public SchoolSearchCmds(ArrayList<Student> s, ArrayList<Teacher> t, HashMap<Int, List<Teacher>> m) {
+    public SchoolSearchCmds(ArrayList<Student> s, ArrayList<Teacher> t, HashMap<Integer, List<Teacher>> m) {
         listStudents = s;
         listTeachers = t;
-        mapTeachers = m ; 
+        mapTeachers = m ;
     }
 
     public void studentLastName(String lastName) {
@@ -40,7 +40,7 @@ public class SchoolSearchCmds {
     }
 
     public void teacherLastName(String lastName) {
-        List<String> printAttribs = Stream.of("stLastName", "stFirstName").collect(Collectors.toList());
+        /*List<String> printAttribs = Stream.of("stLastName", "stFirstName").collect(Collectors.toList());
         int c = 0;
         for(Teacher t : listTeachers){
           if(lastName.equals(t.getLastName())){
@@ -50,6 +50,7 @@ public class SchoolSearchCmds {
         }
         final int j = c;
         executeQuery(s -> s.getClassroom() == j, s -> System.out.println(s.filteredPrint(printAttribs)));
+        */
     }
 
     public void grade(int grade) {
@@ -134,10 +135,8 @@ public class SchoolSearchCmds {
     }
 
     public void classSearchTeacher(int num){
-      for(Teacher t : listTeachers){
-        if(t.getClassroom() == num){
-          System.out.println(t.getLastName() + "," + t.getFirstName());
-        }
+      for(Teacher t : mapTeachers.get(num)){
+        System.out.println(t.getLastName() + "," + t.getFirstName());
       }
     }
 
@@ -150,9 +149,9 @@ public class SchoolSearchCmds {
           }
         }
       }
-      for(Teacher t : listTeachers){
-        if(rooms.contains(t.getClassroom())){
-          System.out.println(t.getLastName()+ "," + t.getFirstName());
+      for(Integer i : rooms){
+        for(Teacher t : mapTeachers.get(num)){
+          System.out.println(t.getLastName() + "," + t.getFirstName());
         }
       }
     }
