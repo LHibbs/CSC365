@@ -12,10 +12,12 @@ public class SchoolSearchCmds {
 
     private ArrayList<Student> listStudents;
     private ArrayList<Teacher> listTeachers;
+    private HashMap<Int, List<Teacher>> mapTeachers; 
 
-    public SchoolSearchCmds(ArrayList<Student> s, ArrayList<Teacher> t) {
+    public SchoolSearchCmds(ArrayList<Student> s, ArrayList<Teacher> t, HashMap<Int, List<Teacher>>, m) {
         listStudents = s;
         listTeachers = t;
+        mapTeachers = m ; 
     }
 
     public void studentLastName(String lastName) {
