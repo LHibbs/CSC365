@@ -144,7 +144,7 @@ public class SchoolSearchCmds {
       }
     }
 
-    public void gradeSearch(int num){
+    public void gradeSearchTeacher(int num){
       ArrayList<Integer> rooms = new ArrayList<Integer>();
       for(Student s : listStudents){
         if(s.getGrade() == num){
@@ -154,7 +154,7 @@ public class SchoolSearchCmds {
         }
       }
       for(Integer i : rooms){
-        for(Teacher t : mapTeachers.get(num)){
+        for(Teacher t : mapTeachers.get(i)){
           System.out.println(t.getLastName() + "," + t.getFirstName());
         }
       }
@@ -173,81 +173,81 @@ public class SchoolSearchCmds {
       }
     }
 
-public void gradeAnalytics(int gradeNum) {
-    int num = 0;
-    double gpas = 0;
-    for (Student s : listStudents) {
-        if (s.getGrade() == gradeNum) {
-            num++;
-            gpas += s.getGPA();
-        }
+  public void gradeAnalytics(int gradeNum) {
+      int num = 0;
+      double gpas = 0;
+      for (Student s : listStudents) {
+          if (s.getGrade() == gradeNum) {
+              num++;
+              gpas += s.getGPA();
+          }
+      }
+      if (num == 0) {
+          return;
+      }
+      double av = gpas / num;
+      DecimalFormat df = new DecimalFormat("#.##");
+      System.out.println(gradeNum + ": " + df.format(av));
+  }
+
+  public void gradeAnalyticsAll(){
+    for(int g = 0; g < 7; g++){
+      gradeAnalytics(g);
     }
-    if (num == 0) {
-        return;
+  }
+
+  public void teacherAnalytics(String name){
+    ArrayList<Integer> rooms = findTeacherRoom(name);
+    double total = 0;
+    double count = 0;
+    for(Student s : listStudents){
+      if(rooms.contains(s.getClassroom())){
+        total += s.getGPA();
+        count += 1.0;
+      }
     }
-    double av = gpas / num;
     DecimalFormat df = new DecimalFormat("#.##");
-    System.out.println(gradeNum + ": " + df.format(av));
-}
-
-public void gradeAnalyticsAll(){
-  for(int g = 0; g < 7; g++){
-    gradeAnalytics(g);
+    double av = total/count;
+    System.out.println(name + ": " + df.format(av));
   }
-}
 
-public void teacherAnalytics(String name){
-  ArrayList<Integer> rooms = findTeacherRoom(name);
-  double total = 0;
-  double count = 0;
-  for(Student s : listStudents){
-    if(rooms.contains(s.getClassroom())){
-      total += s.getGPA();
-      count += 1.0;
+  public void teacherAnalyticsAll(){
+    Collection<List<Teacher>> c = mapTeachers.values();
+    ArrayList<Integer> nums = new ArrayList<Integer>();
+    for(List<Teacher> l : c){
+      for(Teacher t : l){
+        teacherAnalytics(t.getLastName());
+      }
     }
   }
-  DecimalFormat df = new DecimalFormat("#.##");
-  double av = total/count;
-  System.out.println(name + ": " + df.format(av));
-}
 
-public void teacherAnalyticsAll(){
-  Collection<List<Teacher>> c = mapTeachers.values();
-  ArrayList<Integer> nums = new ArrayList<Integer>();
-  for(List<Teacher> l : c){
-    for(Teacher t : l){
-      teacherAnalytics(t.getLastName());
+  public void busAnalytics(int busNum) {
+      int num = 0;
+      double gpas = 0;
+      for (Student s : listStudents) {
+          if (s.getBus() == busNum) {
+              num++;
+              gpas += s.getGPA();
+          }
+      }
+      if (num == 0) {
+          return;
+      }
+      double av = gpas / num;
+      DecimalFormat df = new DecimalFormat("#.##");
+      System.out.println(busNum + ": " + df.format(av));
+  }
+
+  public void busAnalyticsAll(){
+    ArrayList<Integer> b = new ArrayList<Integer>();
+    for (Student s : listStudents){
+      if(!b.contains(s.getBus())){
+        b.add(s.getBus());
+      }
+    }
+    for(Integer num : b){
+      busAnalytics(num);
     }
   }
-}
-
-public void busAnalytics(int busNum) {
-    int num = 0;
-    double gpas = 0;
-    for (Student s : listStudents) {
-        if (s.getBus() == busNum) {
-            num++;
-            gpas += s.getGPA();
-        }
-    }
-    if (num == 0) {
-        return;
-    }
-    double av = gpas / num;
-    DecimalFormat df = new DecimalFormat("#.##");
-    System.out.println(busNum + ": " + df.format(av));
-}
-
-public void busAnalyticsAll(){
-  ArrayList<Integer> b = new ArrayList<Integer>();
-  for (Student s : listStudents){
-    if(!b.contains(s.getBus())){
-      b.add(s.getBus());
-    }
-  }
-  for(Integer num : b){
-    busAnalytics(num);
-  }
-}
 
 }

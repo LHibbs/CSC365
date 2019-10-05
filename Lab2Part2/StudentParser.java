@@ -12,7 +12,7 @@ public class StudentParser {
 
     public StudentParser() {
         file = new File("list.txt");
-        file = new File("teachers.txt");
+        teachers = new File("teachers.txt");
         try {
             scan = new Scanner(file);
         } catch (FileNotFoundException f) {
@@ -20,7 +20,7 @@ public class StudentParser {
             System.exit(-1);
         }
         try {
-            teacherScan = new Scanner(file);
+            teacherScan = new Scanner(teachers);
         } catch (FileNotFoundException f) {
             System.out.println("teachers.txt not found");
             System.exit(-1);
@@ -64,11 +64,11 @@ public class StudentParser {
         String fName;
         int classroom;
         // int num = 0;
-        while (scan.hasNext()) {
+        while teacherScan.hasNext()) {
             try {
-                lName = scan.next();
-                fName = scan.next();
-                classroom = scan.nextInt();
+                lName = teacherScan.next();
+                fName = teacherScan.next();
+                classroom = teacherScan.nextInt();
                 Teacher t = new Teacher(lName, fName, classroom);
                 if(map.containsKey(classroom)){
                   map.get(classroom).add(t);
