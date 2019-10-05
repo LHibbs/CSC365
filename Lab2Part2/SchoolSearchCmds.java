@@ -12,12 +12,12 @@ public class SchoolSearchCmds {
 
     private ArrayList<Student> listStudents;
     private ArrayList<Teacher> listTeachers;
-    private HashMap<Int, List<Teacher>> mapTeachers; 
+    private HashMap<Int, List<Teacher>> mapTeachers;
 
     public SchoolSearchCmds(ArrayList<Student> s, ArrayList<Teacher> t, HashMap<Int, List<Teacher>>, m) {
         listStudents = s;
         listTeachers = t;
-        mapTeachers = m ; 
+        mapTeachers = m ;
     }
 
     public void studentLastName(String lastName) {
@@ -114,10 +114,8 @@ public class SchoolSearchCmds {
     }
 
     public void classSearchTeacher(int num){
-      for(Teacher t : listTeachers){
-        if(t.getClassroom() == num){
-          System.out.println(t.getLastName() + "," + t.getFirstName());
-        }
+      for(Teacher t : mapTeachers.get(num)){
+        System.out.println(t.getLastName() + "," + t.getFirstName());
       }
     }
 
@@ -130,9 +128,9 @@ public class SchoolSearchCmds {
           }
         }
       }
-      for(Teacher t : listTeachers){
-        if(rooms.contains(t.getClassroom())){
-          System.out.println(t.getLastName()+ "," + t.getFirstName());
+      for(Integer i : rooms){
+        for(Teacher t : mapTeachers.get(num)){
+          System.out.println(t.getLastName() + "," + t.getFirstName());
         }
       }
     }
