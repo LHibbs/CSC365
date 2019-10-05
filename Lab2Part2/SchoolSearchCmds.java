@@ -168,5 +168,4 @@ public class SchoolSearchCmds {
             System.out.println(": " + counts[i]);
         }
       }
-    }
 }
