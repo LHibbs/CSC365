@@ -166,4 +166,28 @@ public class SchoolSearchCmds {
         }
       }
     }
+
+    public void gradeAnalytics(int grade){
+
+    }
+
+    public void gradeAnalyticsAll(){
+        
+    }
+
+    public void teacherAnalytics(String lastname){
+        
+    }
+
+    public void teacherAnalyticsAll(){
+        
+    }
+
+    public void busAnalytics(int busNum){
+        
+    }
+
+    public void busAnalyticsAll(){
+        
+    }
 }
