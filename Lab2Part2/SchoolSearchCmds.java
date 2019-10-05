@@ -55,7 +55,7 @@ public class SchoolSearchCmds {
 
     public void grade(int grade) {
         for(Student s : listStudents) { 
-            if(s.getGrade() == grade)){
+            if(s.getGrade() == grade){
                     System.out.print(s.getLastName() + "," + s.getFirstName()); 
                 }
             } 
@@ -64,7 +64,7 @@ public class SchoolSearchCmds {
     public void gradeHigh(int grade) {
         Student highestStudent = listStudents.get(0); 
         for(Student s : listStudents) { 
-            if(s.getGrade == grade){
+            if(s.getGrade() == grade){
                 if(s.getGPA() >= highestStudent.getGPA()){
                     highestStudent = s; 
                 }
@@ -72,14 +72,14 @@ public class SchoolSearchCmds {
         }
         for(Teacher t : mapTeachers.get(highestStudent.getClassroom())) {
             System.out.print(highestStudent.getLastName() + "," + highestStudent.getFirstName() + "," + highestStudent.getGPA() + "," + 
-                 + t.getLastName() + "," + t.getFirstName() + "," highestStudent.getBus()); 
+                t.getLastName() + "," + t.getFirstName() + "," + highestStudent.getBus()); 
         }
     }
 
     public void gradeLow(int grade) {
         Student lowestStudent = listStudents.get(0); 
         for(Student s : listStudents) { 
-            if(s.getGrade == grade){
+            if(s.getGrade() == grade){
                 if(s.getGPA() <= lowestStudent.getGPA()){
                     lowestStudent = s; 
                 }
@@ -87,13 +87,13 @@ public class SchoolSearchCmds {
         }
         for(Teacher t : mapTeachers.get(lowestStudent.getClassroom())) {
             System.out.print(lowestStudent.getLastName() + "," + lowestStudent.getFirstName() + "," + lowestStudent.getGPA() + "," + 
-                 + t.getLastName() + "," + t.getFirstName() + "," lowestStudent.getBus()); 
+                 t.getLastName() + "," + t.getFirstName() + "," + lowestStudent.getBus()); 
         }
     }
 
     public void bus(int busNum) {
         for(Student s : listStudents) { 
-            if(s.getBus() == busNum)){
+            if(s.getBus() == busNum){
                     System.out.print(s.getLastName() + "," + s.getFirstName() + "," + s.getGrade() + "," + s.getClassroom()); 
                 }
         } 
@@ -167,4 +167,5 @@ public class SchoolSearchCmds {
             System.out.println(": " + counts[i]);
         }
       }
+    }
 }
