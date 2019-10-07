@@ -268,6 +268,113 @@ Wheeeeee
 G: apple
 
 //TC-29
+//Tests Requirements R3, NR1
+//valid command, short form
+//expected output: SAELEE,DANILO
+//GARTH,JOHN
+
+C: 103
+
+//TC-30
+//Tests Requirements R3, NR1
+//valid command, long form
+//expected output: SAELEE,DANILO
+//GARTH,JOHN
+
+Classroom: 103
+
+//TC-31
+//Tests Requirements R3, NR1
+//valid command, invalid arguments
+//expected output: <empty line>
+
+C: 18
+
+//TC-32
+//Tests Requirements R3, NR2
+//valid command, short form
+//expected output: FALKER,ADOLPH
+
+C: 103 T
+
+//TC-33
+//Tests Requirements R3, NR2
+//valid command, long form
+//expected output: FALKER,ADOLPH
+
+Classroom: 103 Teacher
+
+//TC-33
+//Tests Requirements R3, NR3
+//valid command, short form
+//expected output: GAMBREL,JAE
+//KERBS,BENITO
+//NISTENDIRK,NANCY
+//BODZIONY, LUZ
+
+G: 6 T
+
+//TC-34
+//Tests Requirements R3, NR3
+//valid command, long form
+//expected output: GAMBREL,JAE
+//KERBS,BENITO
+//NISTENDIRK,NANCY
+//BODZIONY, LUZ
+
+Grade: 6 Teacher
+
+//TC-35
+//Tests Requirements R3, NR2
+//valid command, short form
+//expected output: 101: 1
+//102: 5
+//103: 2
+//104: 2
+//105: 6
+//106: 2
+//107: 7
+//108: 11
+//109: 5
+//110: 2
+//111: 9
+//112: 8
+
+C: E
+
+//TC-36
+//Tests Requirements R3, NR2
+//valid command, long form
+//expected output: 101: 1
+//102: 5
+//103: 2
+//104: 2
+//105: 6
+//106: 2
+//107: 7
+//108: 11
+//109: 5
+//110: 2
+//111: 9
+//112: 8
+
+Classroom: Enrollment
+
+//TC-37
+//Tests Requirements R3, NR4
+//valid command, short form
+//expected output: 55: 3.04
+
+An: Bus 55
+
+//TC-38
+//Tests Requirements R3, NR4
+//valid command, short form
+//expected output: 55: 3.04
+
+Analytics: Bus 55
+
+//TC-29
 // Tests Requirments R3, R13
 // quit command
 // expected output: program terminates
